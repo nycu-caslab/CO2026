@@ -7,7 +7,7 @@ In Lab3, you are tasked with implementing a Single Cycle CPU based on the RISC-V
 Don't panic! This lab is not as difficult as it might seem. To successfully implement the RISC-V CPU, we encourage you to study the functionality of each component and understand how they cooperate. We will also introduce a useful RISC-V simulator, Ripes, which demonstrates the CPU workflow step by step.
 
 ## Lab Overview Slides
-[Lab3: Single Cycle CPU](https://docs.google.com/presentation/d/1eRFfkqvSi38A7dTkgVR6ztC3lwFJdtpPpFiv_BhThyk/edit?usp=sharing)
+[Lab3: Single Cycle CPU](https://docs.google.com/presentation/d/1DWdZc4BhhCBx0HShtQsLfXIH1er6WZBTcIolRwz9fSI/edit?usp=sharing)
 
 ## Lab Source Code
 
