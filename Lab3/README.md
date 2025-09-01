@@ -136,6 +136,7 @@ Implement your RISC-V single-cycle CPU. Your CPU should support the following RI
 - Memory Operations: `lw`, `sw`
 - Branch Operations: `beq`, `bne`, `blt`, `bge`
 - Jump Operations: `jal`, `jalr`
+- U type Operation: `luipc`
 
 TAs have prepared a Verilator testbench and some `TEST_INSTRUCTION.txt` files to grade your design. The correctness will be verified by comparing the register values.
 
