@@ -1,13 +1,13 @@
-# Lab2: Single Cycle CPU
+# Lab3: Single Cycle CPU
 
 ## Introduction
 
-In Lab2, you are tasked with implementing a Single Cycle CPU based on the RISC-V ISA. Upon completing this lab, you should have a deeper understanding of CPU architecture and the RISC-V instruction set.
+In Lab3, you are tasked with implementing a Single Cycle CPU based on the RISC-V ISA. Upon completing this lab, you should have a deeper understanding of CPU architecture and the RISC-V instruction set.
 
 Don't panic! This lab is not as difficult as it might seem. To successfully implement the RISC-V CPU, we encourage you to study the functionality of each component and understand how they cooperate. We will also introduce a useful RISC-V simulator, Ripes, which demonstrates the CPU workflow step by step.
 
 ## Lab Overview Slides
-[Lab2: Single Cycle CPU](https://docs.google.com/presentation/d/1eRFfkqvSi38A7dTkgVR6ztC3lwFJdtpPpFiv_BhThyk/edit?usp=sharing)
+[Lab3: Single Cycle CPU](https://docs.google.com/presentation/d/1DWdZc4BhhCBx0HShtQsLfXIH1er6WZBTcIolRwz9fSI/edit?usp=sharing)
 
 ## Lab Source Code
 
@@ -71,7 +71,7 @@ addi t1 zero 100
 
 > [!IMPORTANT]
 > Ensure that you change the settings in Ripes to match the constraints of the register values specified for this lab.
-![lab2-ripes2](images/ripes2.png)
+![lab3-ripes3](images/ripes2.png)
 
 ## Single Cycle CPU
 
@@ -79,7 +79,7 @@ addi t1 zero 100
 
 You can follow the architecture diagram to implement a single-cycle CPU.
 
-![lab2-artitecture](images/artitecture.jpg)
+![lab3-artitecture](images/artitecture.jpg)
 
 ### Instruction
 
@@ -121,12 +121,12 @@ Implement the following instructions. The RV32I ISA layout is provided below.
 - jalr  
   `jalr` stores `pc+4` in `regs[rd]`, exectues `pc = regs[rs1] + imm`
   ![jalr](images/jalr.png)
-- auipc
+- auipc  
   ![auipc](images/auipc.png)
 
 > [!IMPORTANT]
 > All operations are signed. You must follow this ISA table to implement your instructions:
-![lab2-2](images/ISAtable.png)
+![lab3-2](images/ISAtable.png)
 
 ## Requirements
 
@@ -136,6 +136,7 @@ Implement your RISC-V single-cycle CPU. Your CPU should support the following RI
 - Memory Operations: `lw`, `sw`
 - Branch Operations: `beq`, `bne`, `blt`, `bge`
 - Jump Operations: `jal`, `jalr`
+- U type Operation: `luipc`
 
 TAs have prepared a Verilator testbench and some `TEST_INSTRUCTION.txt` files to grade your design. The correctness will be verified by comparing the register values.
 
@@ -152,8 +153,8 @@ TAs have prepared a Verilator testbench and some `TEST_INSTRUCTION.txt` files to
 Please submit your source code as a ZIP file to E3. The name of the ZIP file should be `lab2_<student_id>.zip`, and the structure should be as follows:
 
 ```
-lab2_<student_id>.zip
-├── lab2_<student_id>
+lab3_<student_id>.zip
+├── lab3_<student_id>
 │   ├── ALU.v
 │   ├── ALUCtrl.v
 │   ├── Adder.v
@@ -175,14 +176,14 @@ To compress your file, run the following commands:
 
 ```bash
 sudo apt-get install zip
-zip -rq lab2_<student_id>.zip lab2_<student_id>
+zip -rq lab3_<student_id>.zip lab3_<student_id>
 ```
 
 After creating the zip file, you can verify its contents and folder structure by running:
 
 ```bash
 chmod +x validate_zip.sh
-./validate_zip.sh lab2_<student_id>.zip
+./validate_zip.sh lab3_<student_id>.zip
 ```
 
 If the file format is correct, you should see the following message in the terminal:
