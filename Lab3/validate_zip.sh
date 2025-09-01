@@ -13,7 +13,6 @@ EXPECTED_FILES=(
     "Mux3to1.v"
     "PC.v"
     "Register.v"
-    "ShiftLeftOne.v"
     "SingleCycleCPU.v"
 )
 
