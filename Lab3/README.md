@@ -103,6 +103,10 @@ Implement the following instructions. The RV32I ISA layout is provided below.
   ![slt](images/slt.png)
 - slti  
   ![slti](images/slti.png)
+- sra
+  ![sra](images/sra.png)
+- srl
+  ![srl](images/srl.png)
 - lw  
   ![lw](images/lw.png)
 - sw  
