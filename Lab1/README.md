@@ -166,13 +166,7 @@ Constraints of the testcase:
 ### Problem 1(operators practice):
 Description:
 Given four integers $a, b, c, d$, you have to return the result of $F(a, b, c, d)$, where
-$$
-F(a, b, c, d) = 
-\begin{cases}
-(a \oplus b) + (c << d) &a < b \\
-(a \ \& \ b) - (c \ | \ d) & a \ge b \\
-\end{cases}
-$$
+![](images/image.png)
 where $\oplus$ is the bitwise xor operator, $<<$ is the left shift operator, $\&$ is the bitwise and operator, and $|$ is the bitwise or operator.
 
 Example 1:
