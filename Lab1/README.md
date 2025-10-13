@@ -15,11 +15,12 @@ By the end of this lab, you will have a better grasp of assembly language progra
 
 Before you start to write this lab, we will quickly introduce some basic instructions in RISC-V and what do they actually do. Please don't be nervous, take a deep breath and we will start to dive into assembly language. 
 
-There are three basic functions you have to implement with assembly code. We have prepared the template of both c code and assembly code of these three functions and you have to filled the absence of assembly code in order to fulfill those three functions. You may check simply check whether your code is correct by the output of c code or using ripes. 
+There are four basic functions you have to implement with assembly code. We have prepared the template of both c code and assembly code of these four functions and you have to filled the absence of assembly code in order to fulfill those four functions. You may check simply check whether your code is correct by the output of c code or using ripes. 
 
-- max_element
+- operators practice
+- max element
 - dynamic programming
-- fibonacci
+- binary search in recursion
 
 ### Brief Tutorial of assembly language
 
@@ -140,7 +141,55 @@ slli a2, a1, 2  # a2 -> 100(binary) -> 4(decimal)
 # In this instruction, slli will move the value in reg. rs1 imm1 bits left, then store the value into reg. rd
 ```
 
-### Problem 1(max_element):
+### Problem 0(xor trick):
+
+> Note: This is a sample problem. The answer is already provided in the template code. You don't have to implement it or submit it.
+
+Description:
+Given an array $arr$, you have to return the result after every element xor with each other. 
+
+Example 1:
+Input: $arr = [1, 2, 3]$
+Output: 0
+Explanation: 1(01) xor 2(10) => 3(11), 3(11) xor 3(11) => 0(00)
+
+Example 2:
+Input: $arr = [1, 3, 7]$
+Output: 5
+Explanation: 1(001) xor 3(011) => 2(010), 2(010) xor 7(111) => 5(101)
+
+Constraints of the testcase:
+- $1 \leq arr.length \leq 200$
+- For every $i$, $\ 1 \leq arr[i] \leq 10^9$
+
+
+### Problem 1(operators practice):
+Description:
+Given four integers $a, b, c, d$, you have to return the result of $F(a, b, c, d)$, where
+$$
+F(a, b, c, d) = 
+\begin{cases}
+(a \oplus b) + (c << d) &a < b \\
+(a \ \& \ b) - (c \ | \ d) & a \ge b \\
+\end{cases}
+$$
+where $\oplus$ is the bitwise xor operator, $<<$ is the left shift operator, $\&$ is the bitwise and operator, and $|$ is the bitwise or operator.
+
+Example 1:
+Input: $a = 7, b = 9, c = 4, d = 3$
+Output: $46$
+Explanation: $a < b$, so $F(7, 9, 4, 3) = (7 \oplus 9) + (4 << 3) = 14 + 32 = 46$
+
+Example 1:
+Input: $a = 7, b = 5, c = 4, d = 3$
+Output: $-2$
+Explanation: $a >= b$, so $F(7, 5, 4, 3) = (7 \ \& \ 5) - (4 \ | \ 3) = 5 - 7 = -2$
+
+Constraints of the testcase:
+- $0 \leq a, b, c \leq 10^5$
+- $0 \leq d \leq 10$
+
+### Problem 2(max element):
 Description:
 Given an array $arr$, you have to return maximum value of the array.  
 
@@ -157,57 +206,46 @@ Constraints of the testcase:
 - $1 \leq arr.length \leq 200$
 - For every $i$, $\ 0 \leq arr[i] \leq 10^9$
 
-### Problem 2(dp):
+### Problem 3(dp):
 Description:
-You are given an array $charge$ and a variable $T$.
+You are given an $n * m$ 2D integer array $arr$ stands for a map. Your task is to find how many different paths exist from the top-left corner $(0, 0)$ to the bottom-right corner $(n-1, m-1)$. You can only move either down or right at any point in time.
 
-In each row of the array, the first element represents the length of the timber, and the second element represents the corresponding rewards. For example, $charge = [[1, 2], [2, 5]]$ means:
-- if you cut a timber with length 1, you will gain 2 rewards.
-- if you cut a timber with length 2, you will gain 5 rewards.
-
-The variable $T$ is the total length of timber you have. Your task is to return the maximum rewards under the given array and total length. 
+If $arr[i][j] == -1$, it means that the cell is blocked and you cannot pass through that cell. 
+If $arr[i][j] == 0$, you can pass through that cell.
 
 Example 1:
-Input: $charge = [[1, 2], [2, 5]], \ T = 5$
-Output: 12
-Explanation: 5 = 2 + 2 + 1, maximum rewards = 5 + 5 + 2 = 12
+Input: $arr = [[0, 0, 0, 0], [0, -1, 0, 0], [0, 0, 0, 0]]$
+Output: 4
 
 Example 2:
-Input: $charge = [[3, 9], [4, 9]], \ T = 12$
-Output: 36
-Explanation: 12 = 3 + 3 + 3 + 3, maximum rewards = 9 + 9 + 9 + 9 = 36
-
-FYI, this is a classic problem that can be solved using dynamic programming. If you are not fimilier with the problem, [this link](https://www.geeksforgeeks.org/dsa/unbounded-knapsack-repetition-items-allowed/) may help you. 
+Input: $arr = [[0, -1], [-1, 0]]$
+Output: 0
+Explanation: There is no path from $(0, 0)$ to $(1, 1)$.
+ 
 
 Constraint of the testcase:
-- For every $i, j, \ 1 \leq charge[i][j] \leq 10^3$
-- For every $i, \ charge[i].length = 2$
-- $1 \leq charge.length \leq 40$
-- $1 \leq T \leq 10^3$
+- $1 \leq n, m \leq 15$
+- For every $i, j, \ arr[i][j] = 0 or arr[i][j] = -1$
 
-### Problem 3(recursive):
+### Problem 4(binary search in recursion):
 Description:
-You are given the variable $term$ and you have to return the $term$ of the fibonacci sequence. 
-
-Fibonacci sequence:
-$F_n = \begin{cases}
-        0 & \text{if } n = 0 \\
-        1 & \text{if } n = 1 \\
-        F_{n-1} + F_{n-2} & \text{if } n \geq 2
-    \end{cases}$
+You are given an **sorted** integer array $arr$ and an integer $target$. You have to find the index(0-base) of $target$ in $arr$ using binary search. If $target$ does not exist in $arr$, return -1.
 
 Example 1:
-Input: $term = 5$
-Output: $5$
-Explanation: fibonocci sequence: 0, 1, 1, 2, 3, 5...
+Input: $arr = [1, 4, 5, 7, 9, 10, 13]$, $target = 9$
+Output: $4$
+Explanation: The index of 9 in arr is 4.
 
 Example 2:
-Input: $term = 10$
-Output: $55$
-Explanation: fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55...
+Input: $arr = [1, 4, 5, 7, 9, 10, 13]$, $target = 14$
+Output: $-1$
+Explanation: 14 does not exist in arr, so return -1.
 
 Constraint of the testcase:
-- $0 \leq term \leq 30$
+- $1 \leq arr.length \leq 1000$
+- For every $i$, $\ -10^5 \leq arr[i], target \leq 10^5$
+- $arr$ is sorted in ascending order.
+- All the integers in $arr$ are unique.
 
 ### Registers' list:
 ![register list](https://i.sstatic.net/2xdbB.png)
@@ -220,7 +258,7 @@ You may have to look carfully in this image, since you might have to use the cor
 
 ## Requirement
 1. **Assembly Code Implementation** :
-    Implement max_element, dp, and recursive with assembly language. To notice that your result of c and assembly should be the same.
+    Implement operators, max element, dp, and recursive with assembly language. To notice that your result of c and assembly should be the same.
 
 ## Submission
 
