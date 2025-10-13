@@ -65,16 +65,15 @@ In this section, you will focus on implement the ALU Control and ALU units. Thes
 
 In this section, you will implement an integer multiplier in Verilog. The component take two signed 32-bit integers as inputs and produces a signed 64-bit integer as their product. 
 
-We recommend using Booth's algorithm for this implementation, but you may use other methods (e.g. Wallace Tree) if you prefer.
+You must use **Booth's algorithm** for this implementation.
 
-**IMPORTANT**: You **MUST NOT** use built-in multiplication operators in Verilog(e.g., `*`). If you do, you will receive **0 point** for this part. You must implement the multiplication logic manually.
+**IMPORTANT**: You **MUST NOT** use built-in multiplication operators in Verilog(e.g., `*`) or any other multiplication method. If you do, you will receive **0 point** for this part. 
 
 ### How to Write Integer Multiplier
 
 - Understand each step of the Booth's algorithm. (e.g. initializing, shifting, adding, etc.)
 - Know under which conditions you need to add or subtract the multiplicand.
 - Be careful about the difference between sign extension and logical extension. (i.e. `>>>` vs. `>>`)
-- If you choose another method, ensure you fully understand the logic of the algorithm and handle the signed multiplication correctly.
 
 ## Requirement
 1. **ALU and Control Logic**
@@ -89,5 +88,5 @@ We recommend using Booth's algorithm for this implementation, but you may use ot
         - `lw`, `sw`, `jalr`
 
 2. **Integer Multiplier**
-    - Implement the integer multiplier in Verilog without using built-in multiplication operators.
+    - Implement the integer multiplier in Verilog with Booth's algorithm.
     - The multiplier must correctly handle signed multiplication and produce a 64-bit result.
