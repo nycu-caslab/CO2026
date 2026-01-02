@@ -1,9 +1,3 @@
-/*
-Given four integers a, b, c, d, you have to return the result of F(a, b, c, d), where
-F(a, b, c, d) = 
-(a xor b) + (c << d) if a < b
-(a and b) - (c or d) if a >= b
-*/
 #include <stdio.h>
 #include "../../utils/utils.h"
 
@@ -22,7 +16,10 @@ int main(){
     int c = readInt(), d = readInt();
     int c_res = operators(a, b, c, d);
     int asm_res = operators_asm(a, b, c, d);
-
+    if (c_res == asm_res)
+        printf("\033[32m[PASS] \033[0m");
+    else
+        printf("\033[31m[FAILED] \033[0m");
     printf("Result of C code: %d, Result of assembly code: %d\n", c_res, asm_res);
     return 0;
 }

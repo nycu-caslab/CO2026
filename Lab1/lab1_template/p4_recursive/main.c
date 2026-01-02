@@ -1,8 +1,3 @@
-/*
-You are given an **sorted** integer array $arr$ and an integer $target$.
-You have to find the index(0-base) of $target$ in $arr$ using binary search.
-If $target$ does not exist in $arr$, return -1.
-*/
 #include <stdio.h>
 #include "../../utils/utils.h"
 
@@ -24,12 +19,15 @@ int binary_search(int arr[], int left, int right, int target){
 int main(){
     int n = readInt();
     int target = readInt();
-    int *arr = malloc((size_t)n * sizeof(int));
-    for (int i = 0; i < n; i++)
-        arr[i] = readInt();
+    int *arr = malloc(n * sizeof(int));
+    readInt1DArray(arr, n);
     
     int c_res = binary_search(arr, 0, n - 1, target);
     int asm_res = binary_search_asm(arr, 0, n - 1, target);
+    if (c_res == asm_res)
+        printf("\033[32m[PASS] \033[0m");
+    else
+        printf("\033[31m[FAILED] \033[0m");
     printf("Result of C code: %d, Result of assembly code: %d\n", c_res, asm_res);
     free(arr);
     return 0;

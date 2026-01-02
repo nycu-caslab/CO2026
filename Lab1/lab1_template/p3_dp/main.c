@@ -1,10 +1,5 @@
-/*
-You are given an n * m 2D integer array $arr$ stands for a map.
-Your task is to find how many different paths exist from the top-left corner $(0, 0)$ to the bottom-right corner $(n-1, m-1)$.
-You can only move either down or right at any point in time.
-*/
-
 #include <stdio.h>
+#include <string.h>
 #include "../../utils/utils.h"
 
 extern int dp_asm(int *arr, int n, int m);
@@ -31,24 +26,25 @@ int dp(int *arr, int n, int m){
 
 int main(){
     int n = readInt(), m = readInt();
-    int *data = malloc((size_t)n * m * sizeof(int));
-    int *data_asm = malloc((size_t)n * m * sizeof(int));
-    int **arr = malloc((size_t)n * sizeof(int *));
-    int **arr_asm = malloc((size_t)n * sizeof(int *));
-    for (int i = 0; i < n; i++){
-        arr[i] = data + i * m;
-        arr_asm[i] = data_asm + i * m;
-    }
+    int **arr, **arr_asm;
 
-    for (int i = 0; i < n; i++){
-        for (int j = 0; j < m; j++)
-            arr[i][j] = arr_asm[i][j] = readInt();
-    }
+    allocInt2DArray(&arr, n, m);
+    allocInt2DArray(&arr_asm, n, m);
+    readInt2DArray(&arr_asm, n, m);
+
+    memcpy(arr[0], arr_asm[0], n * m * sizeof(int));
     
-    int c_res = dp(&arr[0][0], n, m);
-    int asm_res = dp_asm(&arr_asm[0][0], n, m);
+    int c_res = dp(arr[0], n, m);
+    int asm_res = dp_asm(arr_asm[0], n, m);
     
+    if (c_res == asm_res)
+        printf("\033[32m[PASS] \033[0m");
+    else
+        printf("\033[31m[FAILED] \033[0m");
     printf("Result of C code: %d, Result of assembly code: %d\n", c_res, asm_res);
+
+    freeInt2DArray(arr);
+    freeInt2DArray(arr_asm);
     
     return 0;
 }
