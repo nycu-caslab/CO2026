@@ -166,15 +166,9 @@ Constraints of the testcase:
 ### Problem 1(operators practice):
 Description:
 Given four integers $a, b, c, d$, you have to return the result of $F(a, b, c, d)$, where
-<!-- ![](images/image.png) -->
-$$
-F(a, b, c, d) = 
-\begin{cases}
-(a \oplus b) + (c \ll d) & a < b \\
-(a \mathbin{\&} b) - (c \mathbin{|} d) & a \ge b \\
-\end{cases}
-$$
-where $\oplus$ is the bitwise xor operator, $\ll$ is the left shift operator, $\mathbin{\&}$ is the bitwise and operator, and $\mathbin{|}$ is the bitwise or operator.
+![](images/image.png)
+
+where $\oplus$ is the bitwise xor operator, $\ll$ is the left shift operator, `&` is the bitwise and operator, and $\mathbin{|}$ is the bitwise or operator.
 
 Example 1:
 Input: $a = 7, b = 9, c = 4, d = 3$
@@ -185,7 +179,7 @@ Example 2:
 Input: $a = 7, b = 5, c = 4, d = 3$
 Output: $-2$
 
-Explanation: $a >= b$, so $F(7, 5, 4, 3) = (7 \mathbin{\&} 5) - (4 \mathbin{|} 3) = 5 - 7 = -2$
+> Explanation: $a >= b$, so `F(7, 5, 4, 3) = (7 & 5) - (4 | 3) = 5 - 7 = -2`
 
 Constraints of the testcase:
 - $0 \leq a, b, c \leq 10^5$
