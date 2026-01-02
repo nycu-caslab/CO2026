@@ -151,12 +151,12 @@ Given an array $arr$, you have to return the result after every element xor with
 Example 1:
 Input: $arr = [1, 2, 3]$
 Output: 0
-Explanation: 1(01) xor 2(10) => 3(11), 3(11) xor 3(11) => 0(00)
+> Explanation: 1(01) xor 2(10) => 3(11), 3(11) xor 3(11) => 0(00)
 
 Example 2:
 Input: $arr = [1, 3, 7]$
 Output: 5
-Explanation: 1(001) xor 3(011) => 2(010), 2(010) xor 7(111) => 5(101)
+> Explanation: 1(001) xor 3(011) => 2(010), 2(010) xor 7(111) => 5(101)
 
 Constraints of the testcase:
 - $1 \leq arr.length \leq 200$
@@ -166,18 +166,26 @@ Constraints of the testcase:
 ### Problem 1(operators practice):
 Description:
 Given four integers $a, b, c, d$, you have to return the result of $F(a, b, c, d)$, where
-![](images/image.png)
-where $\oplus$ is the bitwise xor operator, $<<$ is the left shift operator, $\&$ is the bitwise and operator, and $|$ is the bitwise or operator.
+<!-- ![](images/image.png) -->
+$$
+F(a, b, c, d) = 
+\begin{cases}
+(a \oplus b) + (c \ll d) & a < b \\
+(a \mathbin{\&} b) - (c \mathbin{|} d) & a \ge b \\
+\end{cases}
+$$
+where $\oplus$ is the bitwise xor operator, $\ll$ is the left shift operator, $\mathbin{\&}$ is the bitwise and operator, and $\mathbin{|}$ is the bitwise or operator.
 
 Example 1:
 Input: $a = 7, b = 9, c = 4, d = 3$
 Output: $46$
-Explanation: $a < b$, so $F(7, 9, 4, 3) = (7 \oplus 9) + (4 << 3) = 14 + 32 = 46$
+> Explanation: $a < b$, so $F(7, 9, 4, 3) = (7 \oplus 9) + (4 \ll 3) = 14 + 32 = 46$
 
-Example 1:
+Example 2:
 Input: $a = 7, b = 5, c = 4, d = 3$
 Output: $-2$
-Explanation: $a >= b$, so $F(7, 5, 4, 3) = (7 \ \& \ 5) - (4 \ | \ 3) = 5 - 7 = -2$
+
+Explanation: $a >= b$, so $F(7, 5, 4, 3) = (7 \mathbin{\&} 5) - (4 \mathbin{|} 3) = 5 - 7 = -2$
 
 Constraints of the testcase:
 - $0 \leq a, b, c \leq 10^5$
@@ -194,7 +202,6 @@ Output: $7$
 Example 2:
 Input: $arr = [1, 1]$
 Output: $1$
-
 
 Constraints of the testcase:
 - $1 \leq arr.length \leq 200$
@@ -214,12 +221,13 @@ Output: 4
 Example 2:
 Input: $arr = [[0, -1], [-1, 0]]$
 Output: 0
-Explanation: There is no path from $(0, 0)$ to $(1, 1)$.
+> Explanation: There is no path from $(0, 0)$ to $(1, 1)$.
  
 
 Constraint of the testcase:
 - $1 \leq n, m \leq 15$
-- For every $i, j, \ arr[i][j] = 0 or arr[i][j] = -1$
+- For every $i, j, \ arr[i][j] = 0 \ or \ arr[i][j] = -1$
+- It is guaranteed that the top-left corner and bottom-right corner are not blocked.
 
 ### Problem 4(binary search in recursion):
 Description:
@@ -228,16 +236,19 @@ You are given an **sorted** integer array $arr$ and an integer $target$. You hav
 Example 1:
 Input: $arr = [1, 4, 5, 7, 9, 10, 13]$, $target = 9$
 Output: $4$
-Explanation: The index of 9 in arr is 4.
+
+> Explanation: The index of 9 in arr is 4.
 
 Example 2:
 Input: $arr = [1, 4, 5, 7, 9, 10, 13]$, $target = 14$
 Output: $-1$
-Explanation: 14 does not exist in arr, so return -1.
+
+> Explanation: 14 does not exist in arr, so return -1.
 
 Constraint of the testcase:
 - $1 \leq arr.length \leq 1000$
-- For every $i$, $\ -10^5 \leq arr[i], target \leq 10^5$
+- For every $i$, $\ -10^5 \leq arr[i] \leq 10^5$
+- $-10^5 \leq target \leq 10^5$
 - $arr$ is sorted in ascending order.
 - All the integers in $arr$ are unique.
 
@@ -259,20 +270,23 @@ You may have to look carfully in this image, since you might have to use the cor
 Please submit your source code as a ZIP file to E3. The name of the ZIP file should be `lab1_<student_id>.zip`, and the structure should be as follows:
 ```
 lab1_<student_id>.zip
-└── lab1_<student_id>
-    ├── max_element
+└── lab1_<student_id>/
+    ├── p1_operators/
     │   ├── main.c
     │   ├── main.s
     │   └── makefile
-    ├── dp
-    │   ├── dp.c
-    │   ├── dp.s
+    ├── p2_max_element/
+    │   ├── main.c
+    │   ├── main.s
     │   └── makefile
-    └── recursive
-        ├── recursive.c
-        ├── recursive.s
+    ├── p3_dp/
+    │   ├── main.c
+    │   ├── main.s
+    │   └── makefile
+    └── p4_recursive/
+        ├── main.c
+        ├── main.s
         └── makefile
-
 ```
 
 
