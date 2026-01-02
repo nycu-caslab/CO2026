@@ -23,3 +23,31 @@ static inline int readInt(){
         ret = -ret;
     return ret;
 }
+
+static inline void readInt1DArray(int* arr, size_t size) {
+    for (int i = 0; i < size; i++)
+        arr[i] = readInt();
+}
+
+static inline void allocInt2DArray(int*** out_arr, size_t n, size_t m) {
+    int *data = (int*)malloc(n * m * sizeof(int));
+    int **arr = (int**)malloc(n * sizeof(int*));
+
+    for (int i = 0; i < n; i++)
+        arr[i] = data + i * m;
+
+    *out_arr = arr;
+}
+
+static inline void readInt2DArray(int*** out_arr, size_t n, size_t m) {
+    int **arr = *out_arr;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++)
+            arr[i][j] = readInt();
+    }
+}
+
+static inline void freeInt2DArray(int **arr) {
+    free(arr[0]);
+    free(arr);
+}
