@@ -225,7 +225,7 @@ Constraint of the testcase:
 
 ### Problem 4(binary search in recursion):
 Description:
-You are given an **sorted** integer array $arr$ and an integer $target$. You have to find the index(0-base) of $target$ in $arr$ using binary search. If $target$ does not exist in $arr$, return -1.
+You are given an **sorted** integer array $arr$ and an integer $target$. You have to find the index(0-base) of $target$ in $arr$ using binary search. If $target$ does not exist in $arr$, return -1. You should implement the binary search in a recursive way. We will check if your assembly code implementation is in recursive. If not, you will lose some points of this problem.
 
 Example 1:
 Input: $arr = [1, 4, 5, 7, 9, 10, 13]$, $target = 9$
@@ -254,6 +254,21 @@ You may have to look carfully in this image, since you might have to use the cor
 1. Make sure you completely understand the difference between caller register and callee register.
 2. Make sure you know which register is safe to use in your code.
 3. Make sure you have totally understanding each register's function. 
+
+### Verification
+
+We provide the makefile for each problem. You can simply run `make test` to check whether your assembly code is correct or not. This command will run all testcase in `testcase/` folder. If you want to run the code with your own testcase, you can create a text file in `testcase/` folder or use `make run` and input your own testcase in the terminal.
+
+If your assembly code is correct, you will see the output like this:
+```
+riscv64-unknown-elf-gcc main.c main.s -o main
+===== testcases/xor-1.in =====
+bbl loader
+[PASS] Result of C code: 0, Result of assembly code: 0
+===== testcases/xor-2.in =====
+bbl loader
+[PASS] Result of C code: 5, Result of assembly code: 5
+```
 
 ## Requirement
 1. **Assembly Code Implementation** :
