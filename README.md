@@ -92,7 +92,7 @@ We will provide the following template to serve as a reference for the implement
     └── README.md
 ```
 
-## [Lab 5: Implementing a Cache Manager](https://github.com/nycu-caslab/CO2026/tree/main/Lab5) (TODO)
+## [Lab 5: Implementing a Cache Manager](https://github.com/nycu-caslab/CO2026/tree/main/Lab5)
 
 You’ll design a cache manager to manage the cache table and data in cache, we are providing the code of the simulator, but you need to implement the remaining cache manager to finish the lab.
 
