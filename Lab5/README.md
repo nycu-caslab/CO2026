@@ -1,5 +1,5 @@
 # Implement Cache Manager
-
+[Spec PPT](https://docs.google.com/presentation/d/10FDVFUdgOdK4NzAGzUv1uCi76soQDMOWIRjeeBR0W1Y/edit?usp=sharing)
 ## Introduction
 In this lab, you will design a **Cache Manager** to handle cache table lookups and data synchronization between the Cache and Main Memory.
 
