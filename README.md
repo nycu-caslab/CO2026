@@ -7,17 +7,7 @@ Check the [lecture website](https://people.cs.nycu.edu.tw/~ttyeh/course/2026_Spr
 
 ## [Lab 0: Environment Setup & simple Verilog practice](https://github.com/nycu-caslab/CO2026/tree/main/Lab0)
 
-The lab 0 aims to enhance your Verilog coding abilities and to provide you with a preliminary understanding and practical experience with [GTKWave](https://gtkwave.sourceforge.net/) and [Verilator](https://www.veripool.org/verilator/), which we will use in future projects.
-```java
-├── lab0
-│   ├── Makefile // demonstrating the usage of veilator and its tb.
-│   ├── part1
-│   │   ├── fullAdder.v
-│   │   └── testbench.cpp // the tb in cpp.
-│   └── part2
-│       ├── alu.v
-│       └── testbench.cpp
-```
+The lab 0 aims to set up the environment for the following labs. You can follow the README in the `Lab0` directory to set up the environment and get familiar with the tools we will use in the following labs. We recommend you to have a brief understanding with [GTKWave](https://gtkwave.sourceforge.net/) and [Verilator](https://www.veripool.org/verilator/), which we will use in future projects. 
 
 
 ## Lab 1 - Lab 4: From Single Cycle CPU to Advanced Pipeline CPU
