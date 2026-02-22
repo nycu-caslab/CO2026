@@ -281,21 +281,13 @@ Please submit your source code as a ZIP file to E3. The name of the ZIP file sho
 lab1_<student_id>.zip
 └── lab1_<student_id>/
     ├── p1_operators/
-    │   ├── main.c
-    │   ├── main.s
-    │   └── makefile
+    │   └── main.s
     ├── p2_max_element/
-    │   ├── main.c
-    │   ├── main.s
-    │   └── makefile
+    │   └── main.s
     ├── p3_dp/
-    │   ├── main.c
-    │   ├── main.s
-    │   └── makefile
+    │   └── main.s
     └── p4_recursive/
-        ├── main.c
-        ├── main.s
-        └── makefile
+        └── main.s
 ```
 
 
