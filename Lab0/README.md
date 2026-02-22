@@ -7,8 +7,7 @@ In the first lab, we will guide you how to set up the development environment. W
 In addition, for other labs that involve writing Verilog, we provide brief [review slide](https://docs.google.com/presentation/d/14uxFjL9zJWCfVT6Br4R6vbNxkuXCLULN0YWwcnY_5ZA/edit?usp=sharing).
 
 ## Virtual Machine
-Please search how to install **VMware workstation 17** on internet, and click [cloud link](https://drive.google.com/open?id=1E4y2BAJt8UGt3aKIF2QjL2CgAjDIwCiz&amp%3Busp=drive_copy&usp=drive_copy) to download the installer.
-
+Please search how to install **VMware workstation 17** on internet.
 Virtual Machine VM
 - Download : Please [click here](https://download.yyhung.com/COVM_Ubuntu.zip) to download it (19GB, suggest preparing at least 50GB for VM):
 - Platform: Ubuntu20.04 amd64
