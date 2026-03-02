@@ -9,7 +9,7 @@ static inline int readInt(){
     int ret = 0, neg = 0, c;
     while ((c = getchar()) != EOF && (c == ' ' || c == '\n' || c == '\t'));
     if (c == EOF)
-        exit(0);
+        return ret;
     if (c == '-')
         neg = 1, c = getchar();
     if (c == EOF || !isDigit(c)){
